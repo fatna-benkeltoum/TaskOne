@@ -3,40 +3,30 @@ import { View, Text, TouchableOpacity,ScrollView,ImageBackground,Image,Pressable
 import Colors from '../../Config/Colors';
 function Choice(props) {
     return (
-        <View style={{ flexDirection: "row", width: "100%", height: "10%" }}>
+      <View style={{ flexDirection: "row", width: "100%", height: "10%" }}>
+        <Pressable
+          style={styles.btn}
          
-    
-  
-<Pressable
-    style={styles.login_btn}
- onPress={() => this.props.navigation.navigate("HelloThree")}
- >
- <Text style={styles.login_btn_text}>
-  Destination
- </Text>
-</Pressable>
-<Pressable
-    style={styles.login_btn}
- onPress={() => this.props.navigation.navigate("HelloThree")}
- >
- <Text style={styles.login_btn_text}>
- Depart-arrivee
- </Text>
-</Pressable>
-<Pressable
-    style={styles.Search_button}
- onPress={() => this.props.navigation.navigate("HelloThree")}
- >
- <Text style={styles.login_btn_text}>
-  Search
- </Text>
-</Pressable>
-        </View>
-        
+        >
+          <Text style={styles.btn_text}>Destination</Text>
+        </Pressable>
+        <Pressable
+          style={styles.btn}
+         
+        >
+          <Text style={styles.btn_text}>Depart-arrivee</Text>
+        </Pressable>
+        <Pressable
+          style={styles.Search_button}
+         
+        >
+          <Text style={styles.Search_btn_text}>Search</Text>
+        </Pressable>
+      </View>
     );
 }
 const styles = StyleSheet.create({
-login_btn: {
+  btn: {
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 15,
@@ -44,32 +34,35 @@ login_btn: {
     marginLeft: "4%",
     marginTop: "5%",
     width: "28%",
-  
-    height:40
 
+    height: 40,
   },
 
-  login_btn_text: {
+  btn_text: {
     fontSize: 13,
     color: "black",
-    color:'grey'
+    color: "grey",
+  },
+  Search_btn_text: {
+    fontSize: 13,
+    color: "black",
+    color: "white",
   },
   Search_button: {
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 15,
-    backgroundColor:'orange',
+    backgroundColor: "orange",
     marginLeft: "4%",
     marginTop: "5%",
     width: "28%",
-  
-    height:40
 
+    height: 40,
   },
   Search_btn_text: {
     fontSize: 13,
-  
-    color:'white'
+
+    color: "white",
   },
 });
 export default Choice;

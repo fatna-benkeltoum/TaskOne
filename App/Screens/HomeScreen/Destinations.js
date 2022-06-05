@@ -1,69 +1,62 @@
-import React from 'react';
-import { View, Text, TouchableOpacity,ScrollView,ImageBackground,Image } from "react-native";
+import React, { useState, useEffect, useRef } from "react";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  ScrollView,
+  ImageBackground,
+  Image,
+} from "react-native";
 
 function Destinations(props) {
-    return (
-      <View>
-         
-          <View
-          style={{
-            width: "100%",
-            flexDirection: "row",
-            flexWrap: "wrap",
-            marginBottom:20
-          }}
-        >
-          <TouchableOpacity
-            
-              style={{ width: "33.3%" }}
-            
-            >
-              <ImageBackground
-                source={require("../../../assets/kech.jpg")}
-                imageStyle={{
-                  borderBottomLeftRadius: 10,
-                  borderBottomRightRadius: 10,
-                  borderTopLeftRadius: 10,
-                  borderTopRightRadius: 10,
-                  margin: 2,
-                }}
-                style={{
-                  width: 120,
-                  height: 100,
-                  borderRadius: 10,
-                  margin: 5,
-                }}
-              >
-                <ImageBackground
-                 source={require("../../../assets/kech.jpg")}
-                  imageStyle={{
-                    borderBottomLeftRadius: 10,
-                    borderBottomRightRadius: 10,
-                    borderTopLeftRadius: 10,
-                    borderTopRightRadius: 10,
-                    margin: 2,
-                  }}
-                  style={{
-                    width: "100%",
-                    height: 100,
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <Text style={{ color: "white", fontSize: 17 }}>
-                   Maroc
-                  </Text>
-                </ImageBackground>
-              </ImageBackground>
-            </TouchableOpacity>
-            {/* two */}
-            <TouchableOpacity
-            
-            style={{ width: "33.3%" }}
-          
-          >
+  const [DestinationCountries] = useState([
+    {
+      CityName: "Italy",
+      CityImage:
+        "https://images.pexels.com/photos/208701/pexels-photo-208701.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    },
+    {
+      CityName: "Turkey",
+      CityImage:
+        "https://images.pexels.com/photos/1549326/pexels-photo-1549326.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    },
+    {
+      CityName: "France",
+      CityImage:
+        "https://images.pexels.com/photos/699466/pexels-photo-699466.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    },
+    {
+      CityName: "Espagne",
+      CityImage:
+        "https://images.pexels.com/photos/7647911/pexels-photo-7647911.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    },
+    {
+      CityName: "Maroc",
+      CityImage:
+        "https://images.pexels.com/photos/5961950/pexels-photo-5961950.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    },
+    {
+      CityName: "Eypte",
+      CityImage:
+        "https://images.pexels.com/photos/71241/pexels-photo-71241.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    },
+  ]);
+  return (
+    <View>
+      <View
+        style={{
+          width: "100%",
+          flexDirection: "row",
+          flexWrap: "wrap",
+          marginBottom: 20,
+        }}
+      >
+        {DestinationCountries.map((item) => (
+          <TouchableOpacity style={{ width: "33.3%" }}>
             <ImageBackground
-              source={require("../../../assets/kech.jpg")}
+              source={{
+                uri: item.CityImage,
+              }}
               imageStyle={{
                 borderBottomLeftRadius: 10,
                 borderBottomRightRadius: 10,
@@ -79,7 +72,7 @@ function Destinations(props) {
               }}
             >
               <ImageBackground
-               source={require("../../../assets/kech.jpg")}
+                source={require("../../../assets/Rectangle.png")}
                 imageStyle={{
                   borderBottomLeftRadius: 10,
                   borderBottomRightRadius: 10,
@@ -92,193 +85,19 @@ function Destinations(props) {
                   height: 100,
                   alignItems: "center",
                   justifyContent: "center",
+                 
                 }}
               >
                 <Text style={{ color: "white", fontSize: 17 }}>
-                 Italy
+                  {item.CityName}
                 </Text>
               </ImageBackground>
             </ImageBackground>
           </TouchableOpacity>
-          {/* trhee */}
-          <TouchableOpacity
-            
-            style={{ width: "33.3%" }}
-          
-          >
-            <ImageBackground
-              source={require("../../../assets/kech.jpg")}
-              imageStyle={{
-                borderBottomLeftRadius: 10,
-                borderBottomRightRadius: 10,
-                borderTopLeftRadius: 10,
-                borderTopRightRadius: 10,
-                margin: 2,
-              }}
-              style={{
-                width: 120,
-                height: 100,
-                borderRadius: 10,
-                margin: 5,
-              }}
-            >
-              <ImageBackground
-               source={require("../../../assets/kech.jpg")}
-                imageStyle={{
-                  borderBottomLeftRadius: 10,
-                  borderBottomRightRadius: 10,
-                  borderTopLeftRadius: 10,
-                  borderTopRightRadius: 10,
-                  margin: 2,
-                }}
-                style={{
-                  width: "100%",
-                  height: 100,
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <Text style={{ color: "white", fontSize: 17 }}>
-                 Turkey
-                </Text>
-              </ImageBackground>
-            </ImageBackground>
-          </TouchableOpacity>
-          {/* four */}
-          <TouchableOpacity
-            
-            style={{ width: "33.3%" }}
-          
-          >
-            <ImageBackground
-              source={require("../../../assets/kech.jpg")}
-              imageStyle={{
-                borderBottomLeftRadius: 10,
-                borderBottomRightRadius: 10,
-                borderTopLeftRadius: 10,
-                borderTopRightRadius: 10,
-                margin: 2,
-              }}
-              style={{
-                width: 120,
-                height: 100,
-                borderRadius: 10,
-                margin: 5,
-              }}
-            >
-              <ImageBackground
-               source={require("../../../assets/kech.jpg")}
-                imageStyle={{
-                  borderBottomLeftRadius: 10,
-                  borderBottomRightRadius: 10,
-                  borderTopLeftRadius: 10,
-                  borderTopRightRadius: 10,
-                  margin: 2,
-                }}
-                style={{
-                  width: "100%",
-                  height: 100,
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <Text style={{ color: "white", fontSize: 17 }}>
-                 France
-                </Text>
-              </ImageBackground>
-            </ImageBackground>
-          </TouchableOpacity>
-          {/* gg */}
-          <TouchableOpacity
-            
-            style={{ width: "33.3%" }}
-          
-          >
-            <ImageBackground
-              source={require("../../../assets/kech.jpg")}
-              imageStyle={{
-                borderBottomLeftRadius: 10,
-                borderBottomRightRadius: 10,
-                borderTopLeftRadius: 10,
-                borderTopRightRadius: 10,
-                margin: 2,
-              }}
-              style={{
-                width: 120,
-                height: 100,
-                borderRadius: 10,
-                margin: 5,
-              }}
-            >
-              <ImageBackground
-               source={require("../../../assets/kech.jpg")}
-                imageStyle={{
-                  borderBottomLeftRadius: 10,
-                  borderBottomRightRadius: 10,
-                  borderTopLeftRadius: 10,
-                  borderTopRightRadius: 10,
-                  margin: 2,
-                }}
-                style={{
-                  width: "100%",
-                  height: 100,
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <Text style={{ color: "white", fontSize: 17 }}>
-                 Espagne
-                </Text>
-              </ImageBackground>
-            </ImageBackground>
-          </TouchableOpacity>
-          {/* jj */}
-          <TouchableOpacity
-            
-            style={{ width: "33.3%" }}
-          
-          >
-            <ImageBackground
-              source={require("../../../assets/kech.jpg")}
-              imageStyle={{
-                borderBottomLeftRadius: 10,
-                borderBottomRightRadius: 10,
-                borderTopLeftRadius: 10,
-                borderTopRightRadius: 10,
-                margin: 2,
-              }}
-              style={{
-                width: 120,
-                height: 100,
-                borderRadius: 10,
-                margin: 5,
-              }}
-            >
-              <ImageBackground
-               source={require("../../../assets/kech.jpg")}
-                imageStyle={{
-                  borderBottomLeftRadius: 10,
-                  borderBottomRightRadius: 10,
-                  borderTopLeftRadius: 10,
-                  borderTopRightRadius: 10,
-                  margin: 2,
-                }}
-                style={{
-                  width: "100%",
-                  height: 100,
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <Text style={{ color: "white", fontSize: 17 }}>
-                 Egypte
-                </Text>
-              </ImageBackground>
-            </ImageBackground>
-          </TouchableOpacity>
+        ))}
       </View>
-      </View>
-    );
+    </View>
+  );
 }
 
 export default Destinations;

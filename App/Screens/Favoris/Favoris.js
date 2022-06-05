@@ -15,7 +15,7 @@ function Favoris(props) {
       <Header />
       <Choice />
       <AllVoyageFavoris />
-      <View style={{  height: "10%" }}>
+      <View style={{  height: "8%" }}>
         <Footer navigation={props.navigation} screenName="Favoris" />
       </View>
     </View>
@@ -30,21 +30,6 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
   },
-  closeIcon: {
-    width: 50,
-    height: 50,
-    /*   backgroundColor:Colors.primary, */
-    position: "absolute",
-    top: 40,
-    left: 30,
-  },
-  deleteIcon: {
-    width: 50,
-    height: 50,
-    /*  backgroundColor:Colors.secondary, */
-    position: "absolute",
-    top: 40,
-    right: 30,
-  },
+
 });
 export default Favoris;

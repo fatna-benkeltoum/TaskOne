@@ -4,6 +4,7 @@ import { View, Text, TouchableOpacity } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
+import Colors from "../../Config/Colors";
 
 function Footer(props) {
   const [TabLinks, setTabLinks] = useState([
@@ -51,6 +52,7 @@ function Footer(props) {
         height: "20%",
         width: "100%",
         flexDirection: "row",
+        backgroundColor:Colors.primary
     
       }}
     >
@@ -71,8 +73,8 @@ function Footer(props) {
               }}
             >
               {/*  <Entypo name="home" size={27} color="#a4b0be" /> */}
-              {HandleIcons(item.item_id, "#0652DD")}
-              <Text style={{ color: "#0652DD" }}>{item.item_text}</Text>
+              {HandleIcons(item.item_id, "black")}
+              <Text style={{ color: "black" }}>{item.item_text}</Text>
             </TouchableOpacity>
           );
         } else {
@@ -91,8 +93,8 @@ function Footer(props) {
               }}
             >
               {/*  <Entypo name="home" size={27} color="#a4b0be" /> */}
-              {HandleIcons(item.item_id, "#a4b0be")}
-              <Text style={{ color: "#a4b0be" }}>{item.item_text}</Text>
+              {HandleIcons(item.item_id, "white")}
+              <Text style={{ color: "white" }}>{item.item_text}</Text>
             </TouchableOpacity>
           );
         }

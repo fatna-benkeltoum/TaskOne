@@ -8,14 +8,20 @@ import {
   TouchableOpacity,
   Image,
   Pressable,
-  
+  ImageBackground,
 } from "react-native";
 
 import Constants from "expo-constants";
-import { Feather as Icon, FontAwesome as FAIcon } from "@expo/vector-icons";
+import {
+  Feather as Icon,
+  FontAwesome as FAIcon,
+  Fontisto,
+  MaterialCommunityIcons,
+} from "@expo/vector-icons";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import Programme from "./Programme";
+
 export default function Reservation(props) {
  
   const [isFavourite, setFavourite] = useState(false);
@@ -30,15 +36,15 @@ export default function Reservation(props) {
     <View style={{ flex: 1 }}>
       <Header />
       <ScrollView showsVerticalScrollIndicator={false}>
-        <View>
-          <Image
-            style={{ height: 300, resizeMode: "repeat" }}
+        <View style={styles.imageView}>
+          <ImageBackground
+            style={{ height: 200, flex: 1 }}
             source={require("../../../assets/kech.jpg")}
           />
         </View>
         <View style={styles.detailsView}>
-          <View style={styles.productTitleView}>
-            <Text style={styles.productTitle}>Casablanca</Text>
+          <View style={styles.CityTitleView}>
+            <Text style={styles.productTitle}>Marrakech</Text>
             <TouchableOpacity onPress={() => setFavourite(!isFavourite)}>
               <FAIcon
                 name={isFavourite ? "heart" : "heart-o"}
@@ -48,12 +54,17 @@ export default function Reservation(props) {
             </TouchableOpacity>
           </View>
           <View style={styles.InformationView}>
-            <View style={{ flexDirection: "row" }}>
-              <FAIcon name="user" color="grey" size={22} />
+            <View style={{ flexDirection: "row", marginRight: "10%" }}>
+              <MaterialCommunityIcons
+                name="update"
+                size={18}
+                color="black"
+                marginLeft="10%"
+              />
               <Text style={styles.dateText}>4 jours/4 nuits</Text>
             </View>
             <View style={{ flexDirection: "row" }}>
-              <FAIcon name="user" color="grey" size={22} />
+              <Fontisto name="date" size={16} color="black" />
               <Text style={styles.dateText}>18/10/2022</Text>
             </View>
             <View style={{ flexDirection: "row" }}>
@@ -97,22 +108,25 @@ export default function Reservation(props) {
             marginBottom: 50,
           }}
         >
-          <Pressable
-            style={styles.login_btn}
-          
-          >
+          <Pressable style={styles.login_btn}>
             <Text style={styles.login_btn_text}>Demande de reservation</Text>
           </Pressable>
         </View>
-        <View style={{ height: "1%" }}>
-          <Footer navigation={props.navigation} screenName="Reservation" />
-        </View>
       </ScrollView>
+      <View style={{ height: "7%" }}>
+        <Footer navigation={props.navigation} screenName="Reservation" />
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+   ImageView: {
+    flex: 1,
+ 
+    backgroundColor: "#fff",
+  
+  },
   login_btn: {
     marginLeft: "50%",
     alignItems: "center",
@@ -129,25 +143,12 @@ const styles = StyleSheet.create({
 
     color: "white",
   },
-  header: {
-    height: 50,
-    backgroundColor: "#fff",
-    marginTop: Constants.statusBarHeight,
-    paddingHorizontal: 10,
-    borderBottomColor: "#dfe4fe",
-    borderBottomWidth: 1,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-  },
-  headerTitle: {
-    fontSize: 18,
-  },
+ 
   detailsView: {
     paddingHorizontal: 10,
     paddingVertical: 14,
   },
-  productTitleView: {
+  CityTitleView: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
@@ -159,70 +160,18 @@ const styles = StyleSheet.create({
     marginTop: 10,
     flexDirection: "column",
   },
-  dateText: { fontSize: 16 },
+  dateText: { fontSize: 16,marginLeft:10},
 
   buttonText: {
     fontSize: 16,
     color: "#fff",
   },
-  tag: {
-    borderRadius: 4,
-    backgroundColor: "#FFF",
-    marginRight: 10,
-    paddingHorizontal: 10,
-    paddingVertical: 6,
-  },
-  tagLabel: {
-    color: "#333",
-  },
-  tagSelected: {
-    backgroundColor: "#333",
-    borderRadius: 4,
-    marginRight: 10,
-    paddingHorizontal: 10,
-    paddingVertical: 6,
-  },
-  tagLabelSelected: {
-    color: "#FFF",
-  },
+
   Descriptionhearder: {
     padding: 10,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
   },
-  moreProductImageView: {
-    flex: 1,
-    height: 240,
-    backgroundColor: "#fff",
-    borderRadius: 4,
-    overflow: "hidden",
-  },
-  moreProductName: {
-    fontSize: 16,
-  },
-  moreInformationView: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    marginTop: 8,
-  },
-  moreProductPrice: {
-    fontSize: 16,
-  },
-  moreProductIcon: {
-    marginLeft: 10,
-  },
-  moreProductBuyButton: {
-    backgroundColor: "#111",
-    marginTop: 10,
-    paddingVertical: 8,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  moreProductBuyButtonText: {
-    color: "#fff",
-
-    fontSize: 18,
-  },
+ 
 });

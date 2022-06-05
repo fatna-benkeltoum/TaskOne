@@ -13,7 +13,14 @@ function Home(props) {
       <View style={styles.container}>
         <Header />
         <Choice />
-        <View style={{ flexDirection: "row", width: "100%", height: "8%" }}>
+        <View
+          style={{
+            flexDirection: "row",
+            width: "100%",
+
+            justifyContent: "space-between",
+          }}
+        >
           <Text
             style={{
               color: "black",
@@ -21,9 +28,9 @@ function Home(props) {
               fontSize: 18,
               marginLeft: "4%",
               marginTop: "5%",
-              width: "50%",
+
               color: Colors.black,
-              marginRight: "20%",
+
               fontWeight: "500",
             }}
           >
@@ -33,11 +40,11 @@ function Home(props) {
           <Text
             style={{
               marginTop: "5%",
-
+              marginRight: "4%",
               fontSize: 14,
               color: Colors.primary,
             }}
-            onPress={() => {}}
+           
           >
             Voir Tout
           </Text>
@@ -61,7 +68,9 @@ function Home(props) {
           </Text>
         </View>
         <Destinations />
-        <Footer navigation={props.navigation} screenName="Home" />
+       
+          <Footer navigation={props.navigation} screenName="Home" />
+      
       </View>
     );
 }
@@ -75,22 +84,6 @@ container:
         width:'100%',
         height:'100%'
     },
-    closeIcon:{
-        width:50,
-        height:50,
-      /*   backgroundColor:Colors.primary, */
-        position:'absolute',
-        top:40,
-        left:30
-    },
-    deleteIcon:{
-        width:50,
-        height:50,
-       /*  backgroundColor:Colors.secondary, */
-        position:'absolute',
-        top:40,
-       right:30
-   
-    }
+  
 })
 export default Home;

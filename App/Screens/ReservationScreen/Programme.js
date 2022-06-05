@@ -19,14 +19,12 @@ function Programme(props) {
   const [seeFullDescription, setSeeFullDescription] = useState(false);
   return (
     <View>
-      <View style={{ marginTop: 10,}}>
+      <View style={{ marginTop: 10 }}>
         <TouchableOpacity
-          style={styles.productDescriptionHeader}
+          style={styles.DescriptionHeader}
           onPress={() => setSeeFullDescription((prev) => !prev)}
         >
-          <Text style={{  fontSize: 18 }}>
-            Jour 1
-          </Text>
+          <Text style={{ fontSize: 18 }}>Jour 1</Text>
           <TouchableOpacity
             onPress={() => setSeeFullDescription((prev) => !prev)}
           >
@@ -45,7 +43,6 @@ function Programme(props) {
           </Text>
         </View>
       </View>
-      
     </View>
   );
 }
@@ -53,7 +50,7 @@ function Programme(props) {
 export default Programme;
 const styles = StyleSheet.create({
 
-  productDescriptionHeader: {
+  DescriptionHeader: {
     padding: 10,
     flexDirection: "row",
     alignItems: "center",

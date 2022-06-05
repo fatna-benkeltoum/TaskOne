@@ -21,14 +21,13 @@ function App() {
         screenOptions={{
           headerShown: false,
         }}
-        initialRouteName="Favoris"
+        initialRouteName="Home"
       >
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Favoris" component={Favoris} />
         <Stack.Screen name="Reservation" component={Reservation} />
         <Stack.Screen name="Setting" component={Setting} />
         <Stack.Screen name="Profile" component={Profile} />
-    
       </Stack.Navigator>
     </NavigationContainer>
   );

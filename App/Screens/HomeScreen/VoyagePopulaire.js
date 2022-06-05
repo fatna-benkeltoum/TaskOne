@@ -11,278 +11,128 @@ import {
 import Colors from "../../Config/Colors";
 
 import Constants from "expo-constants";
-import { Feather as Icon, FontAwesome as FAIcon } from "@expo/vector-icons";
+import { Feather as Icon, FontAwesome as FAIcon, Fontisto, MaterialCommunityIcons } from "@expo/vector-icons";
 function VoyagePopulaire(props) {
+   const [PopularVoyage] = useState([
+     {
+       CityName: "Casablanca",
+       Time: "4 jours/4 nuits",
+       Date: "18/10/2022",
+       Description: "Lorem ipsum dolor sit amet...",
+       CityImage:
+         "https://images.pexels.com/photos/2404046/pexels-photo-2404046.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+     },
+     {
+       CityName: "Marrakech",
+       Time: "4 jours/4 nuits",
+       Date: "18/10/2022",
+       Description: "Lorem ipsum dolor sit amet...",
+       CityImage:
+         "https://images.pexels.com/photos/3581916/pexels-photo-3581916.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+     },
+     {
+       CityName: "Agadir",
+       Time: "4 jours/4 nuits",
+       Description: "Lorem ipsum dolor sit amet...",
+       Date: "18/10/2022",
+       CityImage:
+         "https://images.pexels.com/photos/2982449/pexels-photo-2982449.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+     },
+     {
+       CityName: "Fes",
+       Time: "4 jours/4 nuits",
+       Date: "18/10/2022",
+       Description: "Lorem ipsum dolor sit amet...",
+       CityImage:
+         "https://images.pexels.com/photos/3525903/pexels-photo-3525903.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+     },
+     {
+       CityName: "Rabat",
+       Time: "4 jours/4 nuits",
+       Date: "18/10/2022",
+       Description: "Lorem ipsum dolor sit amet...",
+       CityImage:
+         "https://images.pexels.com/photos/5961950/pexels-photo-5961950.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+     },
+   ]);
   const [isFavourite, setFavourite] = useState(false);
   return (
     <View>
       <ScrollView
-        horizontal={true}
-        pagingEnabled={true}
-        showsVerticalScrollIndicator={true}
+        horizontal
+        showsHorizontalScrollIndicator={false}
         style={{ width: "100%", height: "30%" }}
       >
-        <TouchableOpacity
-          style={{
-            width: 220,
-            marginBottom: "10%",
-            backgroundColor: "#D4D4D4",
-            marginLeft: 7,
-            borderTopLeftRadius: 20,
-            borderTopRightRadius: 20,
-            shadowColor: "#000",
-            shadowOffset: {
-              width: 0,
-              height: 8,
-            },
-            shadowOpacity: 0.44,
-            shadowRadius: 10.32,
-            elevation: 16,
-            height: 230,
-            borderBottomRightRadius: 30,
-            borderBottomLeftRadius: 30,
-          }}
-        >
-          <ImageBackground
-            source={require("../../../assets/kech.jpg")}
-            imageStyle={{
-              borderTopLeftRadius: 10,
-              borderTopRightRadius: 10,
-            }}
-            style={{
-              width: "100%",
-              height: 140,
-              borderRadius: 10,
-              flexDirection: "row",
-            }}
-          ></ImageBackground>
+        <View style={{ flex: 1, flexDirection: "row", paddingTop: 10 }}>
+          {PopularVoyage.map((item) => (
+            <View
+              style={{
+                width: 200,
+                marginHorizontal: 10,
+                backgroundColor: "#D4D4D4",
+                borderTopLeftRadius: 20,
+                borderTopRightRadius: 20,
+                shadowColor: "#000",
 
-          <View
-            style={{
-              flexDirection: "row",
+                shadowOffset: {
+                  width: 0,
+                  height: 8,
+                },
+                shadowOpacity: 0.44,
+                shadowRadius: 10.32,
+                elevation: 10,
 
-              marginBottom: 15,
-              height: "100%",
-            }}
-          >
-            <View style={styles.detailsView}>
-              <View style={styles.productTitleView}>
-                <Text style={styles.productTitle}>Casablanca</Text>
-                <TouchableOpacity onPress={() => setFavourite(!isFavourite)}>
-                  <FAIcon
-                    name={isFavourite ? "heart" : "heart-o"}
-                    color="red"
-                    size={22}
-                  />
-                </TouchableOpacity>
+                borderBottomRightRadius: 20,
+                borderBottomLeftRadius: 20,
+              }}
+            >
+              <View style={styles.ImageView}>
+                <Image
+                  style={{ flex: 1 }}
+                  source={{
+                    uri: item.CityImage,
+                  }}
+                />
               </View>
-              <View style={styles.InformationView}>
-                <View style={{ flexDirection: "row" }}>
-                  <FAIcon name="user" color="grey" size={22} />
-                  <Text style={styles.dateText}>4 jours/4 nuits</Text>
+              <View style={{ marginTop: 8 }}>
+                <View
+                  style={{
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <Text>{item.CityName}</Text>
+                  <TouchableOpacity onPress={() => setFavourite(!isFavourite)}>
+                    <FAIcon
+                      name={isFavourite ? "heart" : "heart-o"}
+                      color="red"
+                      size={22}
+                    />
+                  </TouchableOpacity>
                 </View>
-                <View style={{ flexDirection: "row" }}>
-                  <FAIcon name="user" color="grey" size={22} />
-                  <Text style={styles.dateText}>18/10/2022</Text>
+                <View >
+                  <View style={{ flexDirection: "row" }}>
+                    <Fontisto name="date" size={16} color="black" />
+                    <Text style={{marginLeft:4}}>{item.Date}</Text>
+                  </View>
+                  <View style={{ flexDirection: "row" }}>
+                    <MaterialCommunityIcons
+                      name="update"
+                      size={18}
+                      color="black"
+                    />
+                    <Text style={{marginLeft:4}}>{item.Time}</Text>
+                  </View>
+                  <View style={{ flexDirection: "row" }}>
+                    <Text style={{marginLeft:4}}>
+                      {item.Description}
+                    </Text>
+                  </View>
                 </View>
               </View>
             </View>
-
-            <View
-              style={{
-                height: "50%",
-                width: "10%",
-                marginTop: "1%",
-              }}
-            ></View>
-          </View>
-
-          <View style={{ width: "100%" }}>
-            <Text
-              style={{
-                textAlign: "left",
-                paddingTop: "5%",
-                paddingBottom: "5%",
-                fontSize: 18,
-                marginLeft: "10%",
-              }}
-            ></Text>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={{
-            width: 220,
-            marginBottom: "10%",
-            backgroundColor: "#D4D4D4",
-            marginLeft: 7,
-            borderTopLeftRadius: 20,
-            borderTopRightRadius: 20,
-            shadowColor: "#000",
-            shadowOffset: {
-              width: 0,
-              height: 8,
-            },
-            shadowOpacity: 0.44,
-            shadowRadius: 10.32,
-            elevation: 16,
-            height: 230,
-            borderBottomRightRadius: 30,
-            borderBottomLeftRadius: 30,
-          }}
-        >
-          <ImageBackground
-            source={require("../../../assets/kech.jpg")}
-            imageStyle={{
-              borderTopLeftRadius: 10,
-              borderTopRightRadius: 10,
-            }}
-            style={{
-              width: "100%",
-              height: 140,
-              borderRadius: 10,
-              flexDirection: "row",
-            }}
-          ></ImageBackground>
-
-          <View
-            style={{
-              flexDirection: "row",
-
-              marginBottom: 15,
-              height: "100%",
-            }}
-          >
-            <View style={styles.detailsView}>
-              <View style={styles.productTitleView}>
-                <Text style={styles.productTitle}>Casablanca</Text>
-                <TouchableOpacity onPress={() => setFavourite(!isFavourite)}>
-                  <FAIcon
-                    name={isFavourite ? "heart" : "heart-o"}
-                    color="red"
-                    size={22}
-                  />
-                </TouchableOpacity>
-              </View>
-              <View style={styles.InformationView}>
-                <View style={{ flexDirection: "row" }}>
-                  <FAIcon name="user" color="grey" size={22} />
-                  <Text style={styles.dateText}>4 jours/4 nuits</Text>
-                </View>
-                <View style={{ flexDirection: "row" }}>
-                  <FAIcon name="user" color="grey" size={22} />
-                  <Text style={styles.dateText}>18/10/2022</Text>
-                </View>
-              </View>
-            </View>
-
-            <View
-              style={{
-                height: "50%",
-                width: "10%",
-                marginTop: "1%",
-              }}
-            ></View>
-          </View>
-
-          <View style={{ width: "100%" }}>
-            <Text
-              style={{
-                textAlign: "left",
-                paddingTop: "5%",
-                paddingBottom: "5%",
-                fontSize: 18,
-                marginLeft: "10%",
-              }}
-            ></Text>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={{
-            width: 220,
-            marginBottom: "10%",
-            backgroundColor: "#D4D4D4",
-            marginLeft: 7,
-            borderTopLeftRadius: 20,
-            borderTopRightRadius: 20,
-            shadowColor: "#000",
-            shadowOffset: {
-              width: 0,
-              height: 8,
-            },
-            shadowOpacity: 0.44,
-            shadowRadius: 10.32,
-            elevation: 16,
-            height: 230,
-            borderBottomRightRadius: 30,
-            borderBottomLeftRadius: 30,
-          }}
-        >
-          <ImageBackground
-            source={require("../../../assets/kech.jpg")}
-            imageStyle={{
-              borderTopLeftRadius: 10,
-              borderTopRightRadius: 10,
-            }}
-            style={{
-              width: "100%",
-              height: 140,
-              borderRadius: 10,
-              flexDirection: "row",
-            }}
-          ></ImageBackground>
-
-          <View
-            style={{
-              flexDirection: "row",
-
-              marginBottom: 15,
-              height: "100%",
-            }}
-          >
-            <View style={styles.detailsView}>
-              <View style={styles.productTitleView}>
-                <Text style={styles.productTitle}>Casablanca</Text>
-                <TouchableOpacity onPress={() => setFavourite(!isFavourite)}>
-                  <FAIcon
-                    name={isFavourite ? "heart" : "heart-o"}
-                    color="red"
-                    size={22}
-                  />
-                </TouchableOpacity>
-              </View>
-              <View style={styles.InformationView}>
-                <View style={{ flexDirection: "row" }}>
-                  <FAIcon name="user" color="grey" size={22} />
-                  <Text style={styles.dateText}>4 jours/4 nuits</Text>
-                </View>
-                <View style={{ flexDirection: "row" }}>
-                  <FAIcon name="user" color="grey" size={22} />
-                  <Text style={styles.dateText}>18/10/2022</Text>
-                </View>
-              </View>
-            </View>
-
-            <View
-              style={{
-                height: "50%",
-                width: "10%",
-                marginTop: "1%",
-              }}
-            ></View>
-          </View>
-
-          <View style={{ width: "100%" }}>
-            <Text
-              style={{
-                textAlign: "left",
-                paddingTop: "5%",
-                paddingBottom: "5%",
-                fontSize: 18,
-                marginLeft: "10%",
-              }}
-            ></Text>
-          </View>
-        </TouchableOpacity>
+          ))}
+        </View>
       </ScrollView>
     </View>
   );
@@ -290,116 +140,21 @@ function VoyagePopulaire(props) {
 
 export default VoyagePopulaire;
 const styles = StyleSheet.create({
-  login_btn: {
-    marginLeft: "50%",
-    alignItems: "center",
-    justifyContent: "center",
-    paddingVertical: " 4%",
-    paddingHorizontal: "8%",
-    borderRadius: 15,
-    backgroundColor: "orange",
-    width: "120%",
-  },
-  login_btn_text: {
-    fontSize: 16,
-
-    color: "white",
-  },
-  header: {
-    height: 50,
-    backgroundColor: "#fff",
-    marginTop: Constants.statusBarHeight,
-    paddingHorizontal: 10,
-    borderBottomColor: "#dfe4fe",
-    borderBottomWidth: 1,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-  },
-  headerTitle: {
-    fontSize: 18,
-  },
-  detailsView: {
-    paddingHorizontal: 10,
-    paddingVertical: 14,
-  },
-  productTitleView: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-  productTitle: {
-    fontSize: 16,
-  },
-  InformationView: {
-    marginTop: 1,
-    flexDirection: "column",
-    fontSize:9
-  },
-  dateText: { fontSize: 15 },
-
-  buttonText: {
-    fontSize: 16,
-    color: "#fff",
-  },
-  tag: {
-    borderRadius: 4,
-    backgroundColor: "#FFF",
-    marginRight: 10,
-    paddingHorizontal: 10,
-    paddingVertical: 6,
-  },
-  tagLabel: {
-    color: "#333",
-  },
-  tagSelected: {
-    backgroundColor: "#333",
-    borderRadius: 4,
-    marginRight: 10,
-    paddingHorizontal: 10,
-    paddingVertical: 6,
-  },
-  tagLabelSelected: {
-    color: "#FFF",
-  },
-  Descriptionhearder: {
-    padding: 10,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-  },
-  moreProductImageView: {
+  ImageView: {
     flex: 1,
     height: 240,
     backgroundColor: "#fff",
     borderRadius: 4,
     overflow: "hidden",
+  
   },
-  moreProductName: {
-    fontSize: 16,
-  },
-  moreInformationView: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    marginTop: 8,
-  },
-  moreProductPrice: {
-    fontSize: 16,
-  },
-  moreProductIcon: {
-    marginLeft: 10,
-  },
-  moreProductBuyButton: {
-    backgroundColor: "#111",
-    marginTop: 10,
-    paddingVertical: 8,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  moreProductBuyButtonText: {
-    color: "#fff",
 
-    fontSize: 18,
+  InformationView: {
+    marginTop: 1,
+    flexDirection: "column",
+    fontSize: 9,
   },
+  dateText: { fontSize: 15 },
+ 
+  
 });

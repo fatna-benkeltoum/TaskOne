@@ -49,6 +49,7 @@ function Profile(props) {
           <View
             style={{
               marginRight: "10%",
+              
             }}
           >
             <View
@@ -56,6 +57,8 @@ function Profile(props) {
                 width: "100%",
                 flexDirection: "row",
                 alignItems: "center",
+                
+                marginLeft: 9,
               }}
             >
               <View
@@ -64,7 +67,6 @@ function Profile(props) {
                   marginLeft: "5%",
                   marginRight: "5%",
                   width: "40%",
-                  alignItems: "center",
                 }}
               >
                 <Text
@@ -72,6 +74,7 @@ function Profile(props) {
                     color: "black",
                     paddingTop: "10%",
                     paddingBottom: "10%",
+                    paddingLeft: 5,
                   }}
                 >
                   Email:
@@ -97,6 +100,8 @@ function Profile(props) {
                 width: "100%",
                 flexDirection: "row",
                 alignItems: "center",
+               
+                marginLeft: 9,
               }}
             >
               <View
@@ -105,48 +110,6 @@ function Profile(props) {
                   marginLeft: "5%",
                   marginRight: "5%",
                   width: "40%",
-                  alignItems: "center",
-                }}
-              >
-                <Text
-                  style={{
-                    color: "black",
-                    paddingTop: "2%",
-                    paddingBottom: "2%",
-                  }}
-                >
-                  Tele:
-                </Text>
-              </View>
-
-              <TextInput
-                placeholder="+212666666666"
-                style={{
-                  color: "#3E3F68",
-                  borderWidth: 1,
-                  marginLeft: "5%",
-                  borderColor: "grey",
-                  width: "55%",
-                  backgroundColor: "#F4F4F4",
-                  borderRadius: 6,
-                  paddingLeft: 8,
-                }}
-              />
-            </View>
-            <View
-              style={{
-                width: "100%",
-                flexDirection: "row",
-                alignItems: "center",
-              }}
-            >
-              <View
-                style={{
-                  borderRadius: 10,
-                  marginLeft: "5%",
-                  marginRight: "5%",
-                  width: "40%",
-                  alignItems: "center",
                 }}
               >
                 <Text
@@ -154,6 +117,7 @@ function Profile(props) {
                     color: "black",
                     paddingTop: "10%",
                     paddingBottom: "10%",
+                    paddingLeft: 5,
                   }}
                 >
                   Adresse:
@@ -174,13 +138,56 @@ function Profile(props) {
                 }}
               />
             </View>
+            <View
+              style={{
+                width: "100%",
+                flexDirection: "row",
+                alignItems: "center",
+                
+                marginLeft: 9,
+              }}
+            >
+              <View
+                style={{
+                  borderRadius: 10,
+                  marginLeft: "5%",
+                  marginRight: "5%",
+                  width: "40%",
+                }}
+              >
+                <Text
+                  style={{
+                    color: "black",
+                    paddingTop: "10%",
+                    paddingBottom: "10%",
+                    paddingLeft: 5,
+                  }}
+                >
+                  Tele:
+                </Text>
+              </View>
+
+              <TextInput
+                placeholder="066666666666"
+                style={{
+                  color: "#3E3F68",
+                  borderWidth: 1,
+                  marginLeft: "5%",
+                  borderColor: "grey",
+                  width: "55%",
+                  backgroundColor: "#F4F4F4",
+                  borderRadius: 6,
+                  paddingLeft: 8,
+                }}
+              />
+            </View>
           </View>
           <View
             style={{
               height: "80%",
               paddingTop: "2%",
               paddingBottom: "4%",
-              marginRight: "37%",
+              marginRight: "58%",
             }}
           >
             <Text
@@ -250,11 +257,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "white",
   },
-  header_profile: {
-    marginTop: "18%",
-    fontSize: 22,
-    color: "#1B1464",
-  },
+ 
   txt_name: {
     fontSize: 20,
     marginTop: "-6%",

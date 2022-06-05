@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import Colors from "../../Config/Colors";
-
+import Constants from "expo-constants";
 function Header(props) {
   return (
     <View
@@ -40,7 +40,7 @@ function Header(props) {
         >
           <Text
             style={{
-              justifyContent: "center",
+            
               fontWeight: "bold",
               color: "white",
             }}
@@ -53,22 +53,18 @@ function Header(props) {
   );
 }
 const styles = StyleSheet.create({
+  
   ViewSearchMenu: {
     height: 63,
-    backgroundColor: Colors.primary,
-    marginTop: 22,
-    width: "100%",
-
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 8,
-    },
-    shadowOpacity: 0.44,
-    shadowRadius: 10.32,
-
-    elevation: 16,
+    backgroundColor: "#fff",
+    marginTop: Constants.statusBarHeight,
+    paddingHorizontal: 10,
+    borderBottomColor: "#dfe4fe",
+    borderBottomWidth: 1,
     flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    backgroundColor: Colors.primary,
   },
   container: {
     flex: 1,
@@ -76,22 +72,6 @@ const styles = StyleSheet.create({
   image: {
     width: "100%",
     height: "100%",
-  },
-  closeIcon: {
-    width: 50,
-    height: 50,
-    /*   backgroundColor:Colors.primary, */
-    position: "absolute",
-    top: 40,
-    left: 30,
-  },
-  deleteIcon: {
-    width: 50,
-    height: 50,
-    /*  backgroundColor:Colors.secondary, */
-    position: "absolute",
-    top: 40,
-    right: 30,
   },
 });
 
