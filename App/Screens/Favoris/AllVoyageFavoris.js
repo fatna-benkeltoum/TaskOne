@@ -18,6 +18,7 @@ import {
 } from "@expo/vector-icons";
 
 import Constants from "expo-constants";
+import Heart from "../../Components/Hearts/Heart";
 
 function AllVoyageFavoris(props) {
   const [isFavourite, setFavourite] = useState(false);
@@ -147,13 +148,7 @@ function AllVoyageFavoris(props) {
             <View style={styles.detailsView}>
               <View style={styles.CityTitleView}>
                 <Text style={styles.CityTitle}>{item.CityName}</Text>
-                <TouchableOpacity onPress={() => setFavourite(!isFavourite)}>
-                  <FAIcon
-                    name={isFavourite ? "heart" : "heart-o"}
-                    color="red"
-                    size={22}
-                  />
-                </TouchableOpacity>
+               <Heart/>
               </View>
               <View style={styles.InformationView}>
                 <View style={{ flexDirection: "row" }}>

@@ -12,6 +12,7 @@ import Colors from "../../Config/Colors";
 
 import Constants from "expo-constants";
 import { Feather as Icon, FontAwesome as FAIcon, Fontisto, MaterialCommunityIcons } from "@expo/vector-icons";
+import Heart from "../../Components/Hearts/Heart";
 function VoyagePopulaire(props) {
    const [PopularVoyage] = useState([
      {
@@ -19,6 +20,7 @@ function VoyagePopulaire(props) {
        Time: "4 jours/4 nuits",
        Date: "18/10/2022",
        Description: "Lorem ipsum dolor sit amet...",
+       Id: 0,
        CityImage:
          "https://images.pexels.com/photos/2404046/pexels-photo-2404046.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
      },
@@ -27,6 +29,7 @@ function VoyagePopulaire(props) {
        Time: "4 jours/4 nuits",
        Date: "18/10/2022",
        Description: "Lorem ipsum dolor sit amet...",
+       Id: 1,
        CityImage:
          "https://images.pexels.com/photos/3581916/pexels-photo-3581916.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
      },
@@ -35,6 +38,7 @@ function VoyagePopulaire(props) {
        Time: "4 jours/4 nuits",
        Description: "Lorem ipsum dolor sit amet...",
        Date: "18/10/2022",
+       Id: 2,
        CityImage:
          "https://images.pexels.com/photos/2982449/pexels-photo-2982449.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
      },
@@ -43,6 +47,7 @@ function VoyagePopulaire(props) {
        Time: "4 jours/4 nuits",
        Date: "18/10/2022",
        Description: "Lorem ipsum dolor sit amet...",
+       Id: 3,
        CityImage:
          "https://images.pexels.com/photos/3525903/pexels-photo-3525903.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
      },
@@ -51,6 +56,7 @@ function VoyagePopulaire(props) {
        Time: "4 jours/4 nuits",
        Date: "18/10/2022",
        Description: "Lorem ipsum dolor sit amet...",
+       Id: 4,
        CityImage:
          "https://images.pexels.com/photos/5961950/pexels-photo-5961950.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
      },
@@ -73,7 +79,6 @@ function VoyagePopulaire(props) {
                 borderTopLeftRadius: 20,
                 borderTopRightRadius: 20,
                 shadowColor: "#000",
-
                 shadowOffset: {
                   width: 0,
                   height: 8,
@@ -85,6 +90,7 @@ function VoyagePopulaire(props) {
                 borderBottomRightRadius: 20,
                 borderBottomLeftRadius: 20,
               }}
+              key={item.Id}
             >
               <View style={styles.ImageView}>
                 <Image
@@ -100,20 +106,15 @@ function VoyagePopulaire(props) {
                     flexDirection: "row",
                     justifyContent: "space-between",
                   }}
+                 
                 >
                   <Text>{item.CityName}</Text>
-                  <TouchableOpacity onPress={() => setFavourite(!isFavourite)}>
-                    <FAIcon
-                      name={isFavourite ? "heart" : "heart-o"}
-                      color="red"
-                      size={22}
-                    />
-                  </TouchableOpacity>
+                 <Heart/>
                 </View>
-                <View >
+                <View>
                   <View style={{ flexDirection: "row" }}>
                     <Fontisto name="date" size={16} color="black" />
-                    <Text style={{marginLeft:4}}>{item.Date}</Text>
+                    <Text style={{ marginLeft: 4 }}>{item.Date}</Text>
                   </View>
                   <View style={{ flexDirection: "row" }}>
                     <MaterialCommunityIcons
@@ -121,12 +122,10 @@ function VoyagePopulaire(props) {
                       size={18}
                       color="black"
                     />
-                    <Text style={{marginLeft:4}}>{item.Time}</Text>
+                    <Text style={{ marginLeft: 4 }}>{item.Time}</Text>
                   </View>
                   <View style={{ flexDirection: "row" }}>
-                    <Text style={{marginLeft:4}}>
-                      {item.Description}
-                    </Text>
+                    <Text style={{ marginLeft: 4 }}>{item.Description}</Text>
                   </View>
                 </View>
               </View>
